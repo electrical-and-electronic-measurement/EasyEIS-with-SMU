@@ -143,26 +143,25 @@ end
              |_|                                                                                                
 --]]
 
-
--- experiment parameters
+-- sampling
 local sourceDelay = 0 -- [s]
 local delay = 0.005 -- [s]
-local nplc = 0.05 -- range from 0.01 to 10 , default 1
-local resultFileNamePrefix = "test_battery_readback_10ms_10ma_autoOFF_nplc_05"
-local sourceFilenamePrefix = "generatedCurrent_battery_10ms_10ma_autoOFF_nplc_05"
-local sourceLabel = "Current"
-local readingLabel = "Voltage"
-local repetition = 1
+local nplc = 0.01 -- range from 0.01 to 10 , default 1
+-- instrument range settings
 local measureRange = 5 --[V]  The fixed voltage source ranges are  20 mV, 200 mV, 2 V, 20 V, and 200 V.
 local sourceRange = 0.010 --[A] The fixed current source ranges are 10 nA, 100 nA, 1 microA, 10 microA, 100 microA, 1 mA, 10 mA, 100 mA, and 1 A
-
---  sinusoidal waveform parameters
+-- output files 
+local sourceLabel = "Current"
+local readingLabel = "Voltage"
+local resultFileNamePrefix = "test_battery_readback_10ms_10ma_autoOFF_nplc_05"
+local sourceFilenamePrefix = "generatedCurrent_battery_10ms_10ma_autoOFF_nplc_05"
+--  source sinusoidal waveform parameters
+local repetition = 1
 local sampleTime = delay -- output signal sampling period [s]
 local A = 0.010 -- current signal amplitude [A]
 local po=0.01 -- phase offset
 local b = 0 -- DC bias
 local signalDuration = 100 -- seconds 100
-
 -- frequency sweep
 local sweep = {0.05,0.1,0.2,0.4,1,2,4,10,20,40}
 
