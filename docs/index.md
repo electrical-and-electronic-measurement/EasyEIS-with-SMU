@@ -1,4 +1,4 @@
-# Electrochemical impedance spectroscopy using a source measure unit
+# Documentation Index 
 
 Electrochemical impedance spectroscopy (EIS) is a powerful tool for rechargeable batteries’ monitoring through state of charge and state of health estimation. In practical applications, EIS may be computed using ad-hoc electronics embedded in the final product. The accuracy of these custom impedance measurement systems must be validated against laboratory instrumentation.  
 
@@ -6,9 +6,9 @@ This repository contains the measurement script and the post-processing script w
 
 We developed the measurement script using the Test Script Processor (TSP) language by Tectronix because it was the most effective and convenient option, given the instruments available in our laboratory. The TSP scripting engine is a Lua script interpreter extended with instrument control instructions. We tested the code on a Keithley 2450 SMU, but the TSP script should be compatible with any other TSP-enabled instrument. The measurement script can also be implemented in other languages such as SCPI, supported by different instrument manufacturers.
 
-[Getting started](docs/getting_started.md)
+[Getting started](getting_started.md)
 
-[Electrochemical Impedance Spectroscopy (EIS)](docs/electrochemical-Impedance-spectroscopy.md)
+[Electrochemical Impedance Spectroscopy (EIS)](electrochemical-Impedance-spectroscopy.md)
 
 [EIS on Li-On battery with Keithley 2450](docs/EIS-for-batteries.md)
 

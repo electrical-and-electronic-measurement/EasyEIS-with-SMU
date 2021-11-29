@@ -54,7 +54,7 @@ Di seguit0 un sintesi dei rusltati degli eseprimenti eseguiti. I dati sono dispo
 
 Programmando lo sweep con un delay di 1s e di 0.1s lo strumento riesce ad eseguire le misure rischieste con un timing sostanzialmente preciso, rispettando l'intervallo di campionamento.
 
-![sweep test - delay 1s - 0.1s](../media/currrent_sweep_test_100ms.png)
+![sweep test - delay 1s - 0.1s](media/currrent_sweep_test_100ms.png)
 
 Riducendo il ritardo a 10ms (0.01s) i timing delle misure è preciso fino alle seconda cifra decimale, ma si notano delle irregolarità enll'intervallo sulla terza cifra decimale
 
@@ -66,14 +66,14 @@ I limiti di precisone a livello risultano evidenti riducendo il ritardo a 1ms (0
 
 Per cercare indagare sulla possibilità di spingere al massimo le velocità a discapito della precisione sono stati condotti altri espeimenti modificanado anche il parametro `nplc` rispetto al valore di default `nplc=1`
 
-![sweep test - delay 1ms NPLC](../media/currrent_sweep_test_1ms._npcl.png)
+![sweep test - delay 1ms NPLC](media/currrent_sweep_test_1ms._npcl.png)
 
 Putroppo neppure impostando il valore minimo consentito `nplc=0.01` si riesce ad ottenre un intervallo campionamento costante di 1ms
-![sweep test deplay 1ms NPLC](../media/currrent_sweep_test_1ms._npcl_RC_load.png)
+![sweep test deplay 1ms NPLC](media/currrent_sweep_test_1ms._npcl_RC_load.png)
 
 Il limite inferiore di circa 1-2 mS per l'intervallo tra le diverse misurazioni eseguite nel source sweep è coerente con quanto riportato nel manuale di riverimento al paragrafo "source dealy" (pag. 4-46)
 
-![about source delay on reference manual](./media/../../media/manual4-46_source_delay.png)
+![about source delay on reference manual](media/manual4-46_source_delay.png)
 
 ### Conclusioni
 
