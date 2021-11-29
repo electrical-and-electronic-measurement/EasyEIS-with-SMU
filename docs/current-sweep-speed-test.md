@@ -73,8 +73,6 @@ Putroppo neppure impostando il valore minimo consentito `nplc=0.01` si riesce ad
 
 Il limite inferiore di circa 1-2 mS per l'intervallo tra le diverse misurazioni eseguite nel source sweep è coerente con quanto riportato nel manuale di riverimento al paragrafo "source dealy" (pag. 4-46)
 
-![about source delay on reference manual](media/manual4-46_source_delay.png)
-
 ### Conclusioni
 
 La massima velocità di esecuzione delle misure può essere ottentuta solo rinuncianto a parte della precisione.
