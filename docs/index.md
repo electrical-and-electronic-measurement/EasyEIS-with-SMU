@@ -1,37 +1,35 @@
-## Welcome to GitHub Pages
+# Electrochemical impedance spectroscopy using a source measure unit
 
-You can use the [editor on GitHub](https://github.com/electrical-and-electronic-measurement/EIS-with-Keithley-SMU/edit/main/docs/index.md) to maintain and preview the content for your website in Markdown files.
+Electrochemical impedance spectroscopy (EIS) is a powerful tool for rechargeable batteries’ monitoring through state of charge and state of health estimation. In practical applications, EIS may be computed using ad-hoc electronics embedded in the final product. The accuracy of these custom impedance measurement systems must be validated against laboratory instrumentation.  
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+This repository contains the measurement script and the post-processing script we developed to perform EIS using a standard commercial source measure unit on a lithium-ion battery to validate results from a custom impedance measurement system.
 
-### Markdown
+We developed the measurement script using the Test Script Processor (TSP) language by Tectronix because it was the most effective and convenient option, given the instruments available in our laboratory. The TSP scripting engine is a Lua script interpreter extended with instrument control instructions. We tested the code on a Keithley 2450 SMU, but the TSP script should be compatible with any other TSP-enabled instrument. The measurement script can also be implemented in other languages such as SCPI, supported by different instrument manufacturers.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+[Getting started](docs/getting_started.md)
 
-```markdown
-Syntax highlighted code block
+[Electrochemical Impedance Spectroscopy (EIS)](docs/electrochemical-Impedance-spectroscopy.md)
 
-# Header 1
-## Header 2
-### Header 3
+[EIS on Li-On battery with Keithley 2450](docs/EIS-for-batteries.md)
 
-- Bulleted
-- List
+[current sweep speed test](docs/current-sweep-speed-test.md)
 
-1. Numbered
-2. List
+Limitation of Keithley 2450 for EIS - TBD 
 
-**Bold** and _Italic_ and `Code` text
+EIS with Impedency.py
 
-[Link](url) and ![Image](src)
-```
+[sinusoidal signal generator](docs/sinusoidal-signal-generator.md)
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+[frequency sweep signal generator](docs/frequency-sweep-signal-generator.md)
 
-### Jekyll Themes
+[Keithley 2450 remote operations](docs/keithley-2450-remote.md)
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/electrical-and-electronic-measurement/EIS-with-Keithley-SMU/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+[Save data](docs/save-data.md)
 
-### Support or Contact
+Data from Resistive load
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+Data from RC load
+
+Data from Li-On Battery
+
+Impedency.py software package
