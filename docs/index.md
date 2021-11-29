@@ -10,7 +10,7 @@ We developed the measurement script using the Test Script Processor (TSP) langua
 
 [Electrochemical Impedance Spectroscopy (EIS)](electrochemical-Impedance-spectroscopy.md)
 
-[EIS on Li-On battery with Keithley 2450](EIS-for-batteries.md)
+[EIS with Keithley 2450](EIS-with-Keithley-2450.md
 
 [current sweep speed test](current-sweep-speed-test.md)
 
