@@ -16,8 +16,6 @@ We developed the measurement script using the Test Script Processor (TSP) langua
 
 Limitation of Keithley 2450 for EIS - TBD 
 
-EIS with Impedency.py
-
 [sinusoidal signal generator](docs/sinusoidal-signal-generator.md)
 
 [frequency sweep signal generator](docs/frequency-sweep-signal-generator.md)

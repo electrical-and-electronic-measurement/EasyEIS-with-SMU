@@ -145,7 +145,7 @@ If no explict source delay is set (`smu.source.delay=0`) an autodelay will be in
 
 The `smu.source.sweeplist()` function has many parameters to customize the sweep. The sweep delay paramer can be used to insert a delay beetween measurement points. See page 14-196 iun the reference manual([3](./references.md)).
 
-![sweeplist function parameters from reference manual](../media/manual_sweeplist.png)
+![sweeplist function parameters from reference manual](media/manual_sweeplist.png)
 
 ### Measure Time and NPLC
 

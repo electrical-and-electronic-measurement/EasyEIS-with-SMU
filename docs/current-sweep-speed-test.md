@@ -1,6 +1,6 @@
 # Current Sweep Speed Test
 
-Esecuzione di un source current sweep per verificare la velocità dello strumento nel produrre la forma d'onda richiesta e nell'eseguire la misura
+How fast is the tool? How many measurements can be made every second? What is the minimum time interval between two measurements? We have experimentally tested the performance of the available SMU instrument.
 
 ```lua
 -- -------------------------------------
