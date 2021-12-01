@@ -2,105 +2,52 @@
 
 How fast is the tool? How many measurements can be made every second? What is the minimum time interval between two measurements? We have experimentally tested the performance of the available SMU instrument.
 
-```lua
--- -------------------------------------
--- SOURCE SETTIGNS
+In this experiment we tried to push the instrument to it's maximum speed using the following configuration: 
 
-smu.source.func = smu.FUNC_DC_CURRENT
-smu.source.range = 100e-3
-smu.source.vlimit.level = 20
+```lua
 
 -- setting for maximum speed 
-smu.source.delay=sourceDelay
+smu.source.delay=0
 smu.source.readback = smu.OFF
-
--- -------------------------------
--- Measure setting
-
-smu.measure.func = smu.FUNC_DC_VOLTAGE
-smu.measure.sense=smu.SENSE_4WIRE
-smu.measure.range = 10
-
--- settings for maximum speed
-smu.measure.nplc = nplc
+smu.measure.nplc = 0.01
 smu.measure.autozero.enable = smu.OFF
 smu.measure.autozero.once()
 
-
-smu.source.sweeplog("RES", 100e-6, 10e-3, 10, delay, 1, smu.RANGE_BEST, smu.OFF)
-trigger.model.initiate()
-waitcomplete()
 ```
 
-## Configurazione per massima velocità
+`smu.source.readback = smu.ON` mean that the output of the measure will include the measured source singal levels while with `smu.source.readback = smu.OFF` the programmed value is used. The source signal measure is executed immidiatly before the measure signal measuremnt. This additional measure require some time and increase the overall time required for each messuremt.
 
-Lo strumento mette a disposizione diversi parametri per sceglire il compromesso desiderato tra la precisione della msiurazione e la velocità meòò'esecuzione delle mesure. In questo esperimento si è cercato di spingere al massimo la velocità agendo sui seguenti parametri di configurazione:
+`smu.source.delay=0` allow to control the delay between two measures only with `delay` paramer `function`.
 
-- smu.source.delay
-- smu.source.readback = smu.OFF
-- smu.measure.nplc
-- smu.measure.autozero
+NPLC Set the amount of time that the input signal is measured is specified in parameters that are based on the number of power line cycles (NPLCs). Lower NPLC settings result in faster reading rates, but increased noise. Higher NPLC settings result in lower reading noise, but slower reading rates.
 
-L'esperimento è stato ripetuto con diverse combinazioni dei parametri `nplc e delay` utilizzando un carico puramente resistivo ed un carico costituito da un parallelo RC.
+Each power line cycle for 60 Hz is 16.67 ms (1/60); for 50Hz, it is 20 ms (1/50).
 
-## Risultati
+The shortest amount of time results in the fastest reading rate, but increases the reading noise and decreases the number of usable digits.
+The longest amount of time provides the lowest reading noise and more usable digits, but has the slowest reading rate.
 
-Di seguit0 un sintesi dei rusltati degli eseprimenti eseguiti. I dati sono disponibili due della cartella current speed test]
+## Experimental Results
 
-- [carico resistivo 10Kohm](../current-sweep-speed-test/current_sweep_test_R10K_LOAD.txt) 
-- [carico RC](../current-sweep-speed-test/current_sweep_test_R10K_LOAD.txt)
+The experiment has been repeted with various combination of NPLC and delay parameters.
 
-### Delay 1s - 0.1 s
-
-Programmando lo sweep con un delay di 1s e di 0.1s lo strumento riesce ad eseguire le misure rischieste con un timing sostanzialmente preciso, rispettando l'intervallo di campionamento.
+- [current seep test tsp script](../current-sweep-speed-test/current-sweep-test.tsp)
+- [results with 10K resistive load](../current-sweep-speed-test/current_sweep_test_R10K_LOAD.txt)
+- [results with RC load](../current-sweep-speed-test/current_sweep_test_RC_LOAD.txt)
 
 ![sweep test - delay 1s - 0.1s](media/currrent_sweep_test_100ms.png)
 
-Riducendo il ritardo a 10ms (0.01s) i timing delle misure è preciso fino alle seconda cifra decimale, ma si notano delle irregolarità enll'intervallo sulla terza cifra decimale
+Reducing delay to 10ms (0.01s) there is some jittering on the measurement interval
 
-![sweep test - delay 10ms](../media/currrent_sweep_test_10ms.png)
+![sweep test - delay 10ms](media/currrent_sweep_test_10ms.png)
 
-I limiti di precisone a livello risultano evidenti riducendo il ritardo a 1ms (0.001s): l'intervallo tra due diverse misure è sempre superiore a 1ms
+When we try to set a 1ms delay we get a measurement interval that is longer than 1ms.
 
-![sweep test - dealy 1ms](../media/currrent_sweep_test_1ms.png)
+![sweep test - dealy 1ms](media/currrent_sweep_test_1ms.png)
 
-Per cercare indagare sulla possibilità di spingere al massimo le velocità a discapito della precisione sono stati condotti altri espeimenti modificanado anche il parametro `nplc` rispetto al valore di default `nplc=1`
-
-![sweep test - delay 1ms NPLC](media/currrent_sweep_test_1ms._npcl.png)
-
-Putroppo neppure impostando il valore minimo consentito `nplc=0.01` si riesce ad ottenre un intervallo campionamento costante di 1ms
-![sweep test deplay 1ms NPLC](media/currrent_sweep_test_1ms._npcl_RC_load.png)
 
 Il limite inferiore di circa 1-2 mS per l'intervallo tra le diverse misurazioni eseguite nel source sweep è coerente con quanto riportato nel manuale di riverimento al paragrafo "source dealy" (pag. 4-46)
 
-### Conclusioni
+## Conclusions
 
-La massima velocità di esecuzione delle misure può essere ottentuta solo rinuncianto a parte della precisione.
-
-L'intervallo tra le misure eseguite determina la frequenza massima che è possibile analizzare per la EIS. Perp poter eseguire correttamente l'analisi spettrale devono essere soddisfatti due requisiti:
-
-- l'intervallo tra le diverse misure (intervallo di capionamenot) deve essere costante
-- il valore della corrente deve essere quello reale (misurato) e non quello teorico programmato sulla sorgente di corrente
-  
-Questi due requisiti determinano il limite inferiore per il parametro "source delay" che è possible ottimizzare.
-
-Un altro fattore da tenere in considerazione è la precisione numerica richiesta dalla misura. L'intervallo tra le misure è infatti inversamente proporzioanle al parametro  `NPLC`
-
-NPLC Set the amount of time that the input signal is measured. Lower NPLC settings result
-in faster reading rates, but increased noise. Higher NPLC settings result in lower
-reading noise, but slower reading rates.
-
-The amount of time is specified in parameters that are based on the number of power line cycles
-(NPLCs). Each power line cycle for 60 Hz is 16.67 ms (1/60); for 50 Hz, it is 20 ms (1/50).
-The shortest amount of time results in the fastest reading rate, but increases the reading noise and
-decreases the number of usable digits.
-The longest amount of time provides the lowest reading noise and more usable digits, but has the
-slowest reading rate.
-Settings between the fastest and slowest number of power line cycles are a compromise between
-speed and noise.
-
-'analis spettrale è necessario che il tempo di 
-
-Per l'esecuzione di una EIS è necessario avere una misura relae della conrrente in ingresso e
-è stato possibile generare un segnale in corrente e misurare la tensione ai capi del DUT in maniiera accurata solo per intervalli di campionamento a partire 10ms.
-Lo strumento non riesce ad eseguire misure con intervallo inferiore a qualche ms.
+The minimum internva between two measurement is between 1 and 2 ms. This is compatilbe with section in the reference manual "source delay" in reference manual. (page 4-46)
+![ref. manuaal](media/manual4-46_source_delay.png)
