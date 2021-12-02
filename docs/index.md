@@ -10,24 +10,12 @@ We developed the measurement script using the Test Script Processor (TSP) langua
 
 [Electrochemical Impedance Spectroscopy (EIS)](electrochemical-Impedance-spectroscopy.md)
 
-[EIS with Keithley 2450](EIS-with-Keithley-2450.md
+[EIS with Keithley 2450](EIS-with-Keithley-2450.md)
 
-[current sweep speed test](current-sweep-speed-test.md)
-
-Limitation of Keithley 2450 for EIS - TBD 
+[SMU current sweep speed test](current-sweep-speed-test.md)
 
 [sinusoidal signal generator](docs/sinusoidal-signal-generator.md)
-
-[frequency sweep signal generator](docs/frequency-sweep-signal-generator.md)
 
 [Keithley 2450 remote operations](docs/keithley-2450-remote.md)
 
 [Save data](docs/save-data.md)
-
-Data from Resistive load
-
-Data from RC load
-
-Data from Li-On Battery
-
-Impedency.py software package
