@@ -1,6 +1,8 @@
 # Electrochemical impedance spectroscopy (EIS) on batteries with Keithley 2450
 
-This project aims to perform a Electrochemical impedance spectroscopy (EIS) on a Li-Ion rechargeable battery using the Keithley 2450 Source Measure Unit (SMU) Instrument. Even the EIS is not among the applications listed in the official documentation,  the features of the instrument should allow to perform the impedance measurement (in theory) up to 100Hz.
+This project aims to perform Electrochemical impedance spectroscopy (EIS) on a Li-Ion rechargeable battery using the Keithley 2450 Source Measure Unit (SMU) Instrument. Even though the EIS is not among the applications listed in the official documentation,  the instrument's features should allow the impedance measurement (in theory) up to 100Hz.
+
+See also [Voltage and Current Measurement Script with Keithley 2450 Video](https://youtu.be/1LU2z2Eqs3A)
 
 ## Programming Keithley 2450
 
@@ -12,15 +14,15 @@ We developed the measurement script using the Test Script Processor (TSP) langua
 
 The Test Script Processor (TSP®) scripting engine is a Lua interpreter. In TSP-enabled instruments, the Lua programming language has been extended with Keithley-specific instrument control commands.
 
-Lua is an efficient general purpose scripting language with simple syntax and a complete functionality set supported by an active community of developer and with a rich ecosystem of open source libraries.
+Lua is an efficient general-purpose scripting language with simple syntax and a complete functionality set supported by an active developer community and a rich ecosystem of open-source libraries.
 
-TSP allows to control every features of the instrument while using standard while using standard programming commands to control script execution such as variables, functions, conditional branching, and loop control.
+TSP controls every instrument's features while using standard programming commands to control script execution such as variables, functions, conditional branching, and loop control.
 
-The main limit of TSP is that all code should reside in a single file named `*.tsp`. File with extension. `.lua` can not be executed form _Script Manager_ and external file can not be loaded at runtime using the `import <module name>` syntax. There is no easy way to add functionality loading external module from one of the many Lua open source repositories.
+The main limit of TSP is that all code should reside in a single file named `*.tsp`. File with extension. `.lua` can not be executed from _Script Manager,_ and external files can not be loaded at runtime using the `import <module name>` syntax. There is no easy way to add functionality loading external modules from one of the many Lua open source repositories.
 
 ## How To Perform an EIS on Keithley 2450 with TSP
 
-Single-Sine [EIS measurements](docs/electrochemical-Impedance-spectroscopy.md) involve applying a sinusoidal perturbation (voltage or current) at different frequencies and measuring the response (current or voltage respectively). A sinusoidal source current signal has been used for this experiment and voltage across DUT has been meaured with a four wire measurement configuration.
+Single-Sine [EIS measurements](docs/electrochemical-Impedance-spectroscopy.md) involve applying a sinusoidal perturbation (voltage or current) at different frequencies and measuring the response (current or voltage, respectively). A sinusoidal source current signal has been used for this experiment, and the voltage across DUT has been measured with a four-wire measurement configuration.
 
 See also [Getting Stated](getting_started.md)
 
@@ -28,7 +30,7 @@ See also [Getting Stated](getting_started.md)
 
 Source parameters must be set before the creation of the source configuration list.
 
-For impedence estimation a current imput signal is sourced and a voltage on DUT terminals is measured. In order to achive the maximum speed autorange is turned off.
+For impedance estimation, a current input signal is sourced, and a voltage on DUT terminals is measured. To achieve the maximum speed, the auto range is turned off.
 
 ### Source settings
 
@@ -41,15 +43,15 @@ For impedence estimation a current imput signal is sourced and a voltage on DUT 
  smu.source.delay = 0 -- [s]
 ```
 
-`smu.source.readback = smu.ON` mean that the output of the measure will include the measured source singal levels while with `smu.source.readback = smu.OFF` the programmed value is used. The source signal measure is executed immidiatly before the measure signal measuremnt. This additional measure require some time and increase the overall time required for each messuremt.
+`smu.source.readback = smu.ON` mean that the output of the measure will include the measured source signal levels while with `smu.source.readback = smu.OFF` the programmed value is used. The source signal measure is executed immediately before the measure signal measurement. This additional measure requires some time and increase the overall time needed for each measurement.
 
-`smu.source.autorange = smu.OFF` disables the autorange function to avoid delay during range changes. A fixed `smu.source.range = 0.010` is therfore used.
+`smu.source.autorange = smu.OFF` disables the auto-range function to avoid delay during range changes. A fixed `smu.source.range = 0.010` is therefore used.
 
-`smu.source.delay=0` allow to control the delay between two measures only with `delay` paramer `function`.
+`smu.source.delay=0` allow controlling the delay between two measures only with `delay` parameter `function`.
 
 ### Measure settings
 
-In order to achive the maximum speed the minimum nplc value is chosen, autorange is turned off  and autozero executed only once.
+The minimum nplc value is chosen, the auto range is turned off, and autozero is executed only once to achieve the maximum speed.
 
 ```lua
  smu.measure.func = smu.FUNC_DC_VOLTAGE
@@ -70,9 +72,9 @@ For Keithly 2450 feature the following ranges:
 
 ## Generate Sinusoidal current source signal
 
-The programmable current source API lack a native function for sinusoidal signal generation so we had to approximate the waveform defining configuration list with current values from a sampled sinusoidal signal generated with `math.sin()` function available in TSP.
+The programmable current source API lacks a native function for a sinusoidal signal generation, so we had to approximate the waveform defining configuration list with current values from a sampled sinusoidal signal generated with `math.sin()` function available in TSP.
 
-The _sweeplist_ function allow to iterate over a list of source configuration and perform a measure for each item of the list.
+The _sweeplist_ function allows to iterate over a list of source configurations and perform a measure for each item of the list.
 
 ```Lua
 
@@ -99,7 +101,7 @@ end
 
 ## Init configuration List
 
-A configuration list is a list of stored settings for the source or measure function. On Keintly 2450 a _Configuration list_ can store a up to of 300,000 _configuration indexes_  
+A configuration list is a list of stored settings for the source or measure function. On Keintly 2450, a _Configuration list_ can hold a up to 300,000 _configuration indexes_  
 
 Each _configuration index_ contains a copy of all instrument source and measure settings such as:
 
@@ -111,7 +113,7 @@ Each _configuration index_ contains a copy of all instrument source and measure 
 - autozero
 - display digit
 
-The current `smu.source.level` value is replaced with value from generated sinusoidal current signal.
+The current `smu.source.level` value is replaced with the value from generated sinusoidal current signal.
 
 ```Lua
  smu.source.configlist.create("CurrentListSweep")
@@ -126,24 +128,24 @@ The current `smu.source.level` value is replaced with value from generated sinus
 
 ## Data acquisition sampling frequency
 
-The time interval between two consecutive measure is the sum of four element:
+The time interval between two consecutive measures is the sum of four elements:
 
  1. Trigger Latency
- 2. Explict source delay or implicit source autodelay
+ 2. Explicit source delay or implicit source auto delay
  3. Measure time
  4. Sweep delay
 
-All but trigger latency can be influenced by user configurable parameters.
+User-configurable parameters can influence all but trigger latency.
 
 ### Source Delay and Autodelay
 
-The programmable current source will tak some time to reach next set point. The ammount of delay is controllerd by `smu.source.delay` parameter.
+The programmable current source will take time to reach the next set point. The amount of delay is controlled by the `smu. source.delay` parameter.
 
-If no explict source delay is set (`smu.source.delay=0`) an autodelay will be inserted by the firmware, based on target value end load type. (see table on page 4-46 in the reference manual([3](./references.md)).
+If no explicit source delay is set (`smu.source.delay=0`), the firmware will insert an auto delay based on the target value end load type. (see table on page 4-46 in the reference manual([3](./references.md).
 
 #### Sweep Delay
 
-The `smu.source.sweeplist()` function has many parameters to customize the sweep. The sweep delay paramer can be used to insert a delay beetween measurement points. See page 14-196 iun the reference manual([3](./references.md)).
+The `smu.source.sweeplist()` function has many parameters to customise the sweep. The sweep delay parameter can insert a delay between measurement points. See page 14-196 in the reference manual([3](./references.md)).
 
 ![sweeplist function parameters from reference manual](media/manual_sweeplist.png)
 
@@ -153,12 +155,11 @@ The `NPLC` parameter set the amount of time that the input signal is measured. L
 
 The amount of time is specified in parameters that are based on the number of power line cycles (NPLCs). Each power line cycle for 60 Hz is 16.67 ms (1/60); for 50 Hz, it is 20 ms (1/50).
 
-NPLC can be set to any value form 0.01 to 10 then minimimin measure time for NPLC 0.01 is 200 microseconds (with 50Hz power line) and 167 microsencods (with 60Hz power line)
+NPLC can be set to any value from 0.01 to 10, then minimum  measure time for NPLC 0.01 is 200 microseconds (with 50Hz power line) and 167 microseconds (with 60Hz power line)
 
-When source readback active two different measurement both on current and voltage are performed for each element of the configuration list.
+When source readback is active, two different measurements on current and voltage are performed for each element of the configuration list.
 
-### Samplig Frequency
+### Sampling Frequency
 
-Running the experiment with NPLC = 0.01 and a source signal with 100mA amplitude, the resulting sampling interval is beetween 1 and 2 ms with mean value 1.46ms.
-
+Running the experiment with NPLC = 0.01 and a source signal with 100mA amplitude, the resulting sampling interval is between 1 and 2 ms with mean value 1.46ms.
 

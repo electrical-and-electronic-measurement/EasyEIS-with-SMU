@@ -1,4 +1,6 @@
-# discrete time sinusoidal signal generator
+# Discrete-time sinusoidal signal generator
+
+**[TO BE TRANSLATED IN ENGLISH]**
 
 Lo strumento non prevede la generazione di form d'onda sinusoidali, ma permette di generare segnali in corrente e tensione passando una lista di set-point da programamre sulla sorgente di corrente/tensione.
 
@@ -12,8 +14,6 @@ Affinchè il segnale generato sia almeno approssimativamente sinusoidale devono 
 
 - l'intervallo tra i campioni è molto minore dell'periodo del segnale sinusoidale
 - la banda passante del generatore di corrente deve essere molto maggiore della frequenza del segnale sinusoidale
-
-## Generazione del segnale a bordo dello strumento
 
 La libreria delle funzoni matematiche dell'interprete del linguaggio di scriptting LUA include la funzione math.sin()
 
@@ -51,8 +51,6 @@ function generateSinusoidalSignalSampleBased(sampleTime,signalFrequency,N,A,po,b
 end
 ```
 
-## Measure voltage whil sourcing sinusoidal current signal on 10K Resistive load. Samplig interval 10ms
-
 Utilizzando i campioni generati e la funzione sweeplist è possibile utilizare lo strumento come sorgente di segnali sinusoidali.
 
 ```
@@ -62,11 +60,11 @@ local po=0 -- phase offset
 local b = 0 -- DC bias
 ```
 
-Di seguito i risultati di una misura eseguita con `dealy == 0.01s e nplc = 0.01` su carico resistivo da 10Kohm durante l'esecuzzione di uno sweep in corrente sui valori di un segnale sinusoidale campionato.
+Di seguito i risultati di una misura eseguita con `dealy == 0.01s e nplc = 0.01` su carico resistivo da 10Kohm durante esecuzione di uno sweep in corrente sui valori di un segnale sinusoidale campionato.
 
-![current sweep test - source](../media/current_sweep_test_10K_load_source_current.svg)
+![current sweep test - source](media/current_sweep_test_10K_load_source_current.svg)
 
-![current sweep test - measured voltage](../media/current_sweep_test_10K_load_measured_voltage.svg)
+![current sweep test - measured voltage](media/current_sweep_test_10K_load_measured_voltage.svg)
 
 I dati acquisiti sono nel file [sweep test R10K load](../data/sweep_test_R10K_load.csv)
 

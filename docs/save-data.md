@@ -1,6 +1,6 @@
-# Save Data
+# How To Save Data
 
-Write buffer data to CSV file in USB drive
+To export data from instrument buffer to CSV file in USB drive
 
 ```lua
 --[[  ==============================

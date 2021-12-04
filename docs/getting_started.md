@@ -2,14 +2,14 @@
 
 ## Step1: Import Project in TSP Builder
 
-1. Connect an empty USB storage device to save exeperiment result
-2. Open the projet import wizard ![TSB import](media/tsp_builder_import.png)
-3. Select "Existing TSP Project from filesystem" ![TSB import2](media/tsp_builder_import_02.png)
+1. Connect an empty USB storage device to save experiment result
+2. Open the project import wizard ![TSB import](media/tsp_builder_import.png)
+3. Select "Existing TSP Project from the filesystem." ![TSB import2](media/tsp_builder_import_02.png)
 4. Locate the KE2450_EIS folder from this repository ![TSB import3](media/tsp_builder_import_03.png)
 
-## Step2: Configure experiment prameters
+## Step2: Configure experiment parameters
 
-To perform an EIS analysis using this software package edit the configurable parameters in the “experiment parameters” section of `TspBuilder/KE2450_EIS/main.tsp`. 
+To perform an EIS analysis using this software package, edit the configurable parameters in the “experiment parameters” section of `TspBuilder/KE2450_EIS/main.tsp`. 
 
 ```lua
 -- sampling
@@ -42,15 +42,15 @@ local sweep = {0.05,0.1,0.2,0.4,1,2,4,10,20,40}
 
 ## Step3: Electrical connection
 
-Then, the four-wire connection of the DUT must be performed and the program must be executed on the instrument according to the instrument manual. Depending on the specific device capability and setup, the script must be loaded locally or executed from a remote control PC.
+Then, the four-wire connection of the DUT must be performed, and the program must be executed on the instrument according to the instrument manual. Depending on the specific device capability and setup, the script must be loaded locally or run from a remote control PC.
 
 ## Step4: Run the voltage and current measurement script
 
-TSP Builder allow for remote instrument operation over USB or ethernet connection. See instrument manual for configuration. 
+TSP Builder allows for remote instrument operation over USB or ethernet connection. See instrument manual for configuration. 
 ![Open instrument](media/tsp_builder_open_instrument.png)
 
-The current active file can executed on the instrument from TSBBuilder
+The current active file can be executed on the instrument from TSBBuilder
 ![Run from PC](media/tst_builder_run_from_pc.png)
 
-You can also copy the script in a USB storage device and the load the script using ScripManager and run.
-Result file will be saved in the same USB drive.
+You can also copy the script in a USB storage device and then load the script using ScripManager and run it.
+The resulting file will be saved on the same USB drive.
