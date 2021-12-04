@@ -54,3 +54,15 @@ The current active file can be executed on the instrument from TSBBuilder
 
 You can also copy the script in a USB storage device and then load the script using ScripManager and run it.
 The resulting file will be saved on the same USB drive.
+
+## Step5: Run post-processing Matlab Script and compute the EIS
+
+In the `Matlab/load_data.m` file edit the `f0_vector` and the same frequency list usen for data acquisition and change the `data_file_prefix` according to the set of file to process.
+
+```Matlab
+f0_vector = [0.05 0.1 0.2 0.4 1 2 4 10 20 40];
+data_file_prefix= 'data/step-sine-battery-readback-10ms-1ma/generatedCurrent_10ms_1ma_0.1_';
+
+```
+
+Run the `Matlab/load_data.m` and get wait for EIS curve plot to be generated
