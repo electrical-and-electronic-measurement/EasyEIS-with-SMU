@@ -65,4 +65,4 @@ data_file_prefix= 'data/step-sine-battery-readback-10ms-1ma/generatedCurrent_10m
 
 ```
 
-Run the `Matlab/load_data.m` and get wait for EIS curve plot to be generated
+Run the `Matlab/load_data.m` and wait for EIS curve plot to be generated
