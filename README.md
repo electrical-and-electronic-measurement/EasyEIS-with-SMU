@@ -5,9 +5,10 @@ Electrochemical impedance spectroscopy (EIS) is a powerful tool for monitoring r
 This repository contains:
 
 - The voltage and current data acquisition measurement script with a source measure unit (SMU) instrument. [TSB Builder Project](TspBuilder)
-- the post-processing [Matlab script](Matlab/load_data.m)  to compute the EIS from voltage and current data 
-- some [sample data](data/) acquired during our experiment 
-- [documentation](docs/) 
+- the post-processing [Matlab script](Matlab/load_data.m)  to compute the EIS from voltage and current data
+- Some [sample data](data/) acquired during our experiment
+- Project documentation [source markdown files](docs) for  [documentation companion website](https://electrical-and-electronic-measurement.github.io/EIS-with-SMU)
+- [Notebook](notebook) for interactive data analysis
 
 
 
