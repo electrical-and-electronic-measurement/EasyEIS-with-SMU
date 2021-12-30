@@ -1,4 +1,4 @@
-# EasyEIS: A software tool to perform electrochemical impedance spectroscopy using a source measure unit
+# EasyEIS: A software tool to perform electrochemical impedance spectroscopy using a source measure unit (SMU)
 
 [Getting started](getting_started.md)
 
