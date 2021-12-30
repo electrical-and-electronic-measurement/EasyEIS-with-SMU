@@ -1,4 +1,4 @@
-# Electrochemical impedance spectroscopy using a source measure unit
+# EasyEIS: A software tool to perform electrochemical impedance spectroscopy using a source measure unit
 
 Electrochemical impedance spectroscopy (EIS) is a powerful tool for monitoring rechargeable batteries through the state of charge and state of health estimation. In practical applications, EIS may be computed using ad-hoc electronics embedded in the final product. The accuracy of these custom impedance measurement systems must be validated against laboratory instrumentation.  
 
