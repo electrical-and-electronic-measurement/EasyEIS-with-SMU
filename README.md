@@ -26,7 +26,7 @@ We tested the Matlab post-processing scrip with Matlab 9.8 (R2020), but it shoul
 
 ## Project Documentation
 
-See [project documentation companion website](https://electrical-and-electronic-measurement.github.io/EIS-with-SMU).
+See [project documentation companion website](https://electrical-and-electronic-measurement.github.io/EasyEIS-with-SMU).
 
 ## License
 
