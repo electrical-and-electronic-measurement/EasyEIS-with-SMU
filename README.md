@@ -30,7 +30,7 @@ See [project documentation companion website](https://electrical-and-electronic-
 
 ## License
 
-The content of this repository is open source and published under LICENSE).
+The content of this repository is open source and published under GNU General Public License v3.0 [LICENSE](LICENSE).
 
 ## How To Contribute
 
