@@ -119,10 +119,10 @@ for idx_f0 = 1 : length(f0_vector)
     I = fft(sig_i(:)-mean(sig_i))/N;
 
     figure(3);
-    semilogx(f_base,V, 'b.')
+    semilogx(f_base, 20*log10(abs(V)), 'b.')
     hold on;
     grid on;
-    plot(f_base, I, 'r.')
+    plot(f_base, 20*log10(abs(I)), 'r.')
     xlabel('frequency [Hz]')
     ylabel('magnitude [dB]')
     axis([0 Fs/2 0 1]); axis 'auto y';
@@ -140,7 +140,7 @@ for idx_f0 = 1 : length(f0_vector)
         
     Z_vector(idx_f0) = V(idx_freq_v)./I(idx_freq_i);
     
-   % Z_abs = db(Z_vector(idx_f0))    
+    Z_abs = 20*log10(abs(Z_vector(idx_f0)))   
         
 end
 
@@ -148,7 +148,7 @@ end
 %% plot
 figure; 
 subplot(211)
-semilogx(f0_vector, db(Z_vector),'-b.');
+semilogx(f0_vector, 20*log10(abs(Z_vector)),'-b.');
 hold on;
 xlabel('frequency [Hz]')
 ylabel('Magnitude [dB]')
